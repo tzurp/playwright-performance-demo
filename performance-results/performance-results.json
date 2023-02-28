@@ -1,0 +1,1 @@
+[{"name":"startup_SF","brName":"firefox","avgTime":5985,"sem":1074,"repeats":3,"minValue":4696,"maxValue":8117,"earliestTime":"28/02/2023, 12:27:29","latestTime":"28/02/2023, 12:27:49"},{"name":"startup_GH","brName":"firefox","avgTime":3470,"sem":437,"repeats":2,"minValue":3033,"maxValue":3906,"earliestTime":"28/02/2023, 12:27:34","latestTime":"28/02/2023, 12:27:54"}]

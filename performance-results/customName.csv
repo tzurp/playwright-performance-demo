@@ -1,0 +1,5 @@
+name,brName,avgTime,sem,repeats,minValue,maxValue,earliestTime,latestTime
+startup_SF,firefox,5307,623,6,3686,8117,"28/02/2023, 12:27:29","28/02/2023, 12:30:39"
+startup_GH,firefox,4950,1362,5,2550,10099,"28/02/2023, 12:27:34","28/02/2023, 12:30:42"
+startup_SF,chromium,2696,36,3,2647,2766,"28/02/2023, 12:29:46","28/02/2023, 12:29:54"
+startup_GH,chromium,2872,149,3,2583,3083,"28/02/2023, 12:29:49","28/02/2023, 12:29:57"
