@@ -1,7 +1,8 @@
 # playwright-performance-demo
 This is a demo for the Playwright-performance plugin.
 -----------------------------------------------------
-After cloning the project do:
+After cloning the project run the commands:
 npm install
-to run the test execute:
+npx playwright install
+to run the test run the command:
 npx playwright test

@@ -1,5 +1,5 @@
 node_modules/
+performance-results/
 /test-results/
 /playwright-report/
 /playwright/.cache/
-performance-results/
