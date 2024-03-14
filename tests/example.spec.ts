@@ -1,11 +1,11 @@
-import base, {expect} from '@playwright/test';
+import {test as base, expect} from '@playwright/test';
 import type { PerformanceOptions, PlaywrightPerformance, PerformanceWorker } from "playwright-performance";
 import { playwrightPerformance } from "playwright-performance";
 
 const test = base.extend<PlaywrightPerformance, PerformanceOptions & PerformanceWorker>({
   performance: playwrightPerformance.performance,
   performanceOptions: [{
-    analyzeByBrowser: true,
+    analyzeByBrowser: false,
     disableAppendToExistingFile: false,
     performanceResultsFileName:"customName"
   }, { scope: 'worker' }],
