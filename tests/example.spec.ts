@@ -7,7 +7,10 @@ const test = base.extend<PlaywrightPerformance, PerformanceOptions & Performance
   performanceOptions: [{
     analyzeByBrowser: false,
     disableAppendToExistingFile: false,
-    performanceResultsFileName:"customName"
+    performanceResultsFileName:"customName",
+    suppressConsoleResults: false,
+    recentDays:0,
+
   }, { scope: 'worker' }],
   worker: [playwrightPerformance.worker, { scope: 'worker', auto: true }]
 });
