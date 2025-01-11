@@ -1,19 +1,17 @@
 import {test as base, expect} from '@playwright/test';
-import type { PerformanceOptions, PlaywrightPerformance, PerformanceWorker } from "playwright-performance";
-import { playwrightPerformance } from "playwright-performance";
+import extendPlaywrightPerformance, {PerformanceOptions, PerformanceWorker, PlaywrightPerformance} from "playwright-performance";
 
-const test = base.extend<PlaywrightPerformance, PerformanceOptions & PerformanceWorker>({
-  performance: playwrightPerformance.performance,
-  performanceOptions: [{
-    analyzeByBrowser: false,
-    disableAppendToExistingFile: false,
-    performanceResultsFileName:"customName",
-    suppressConsoleResults: false,
-    recentDays:0,
+const options: PerformanceOptions = {
+  analyzeByBrowser: false,
+  disableAppendToExistingFile: false,
+  dropResultsFromFailedTest: false,
+  performanceResultsDirectoryName: "performance-results",
+  performanceResultsFileName: "performance-results",
+  suppressConsoleResults: false,
+  recentDays: 1,
+};
 
-  }, { scope: 'worker' }],
-  worker: [playwrightPerformance.worker, { scope: 'worker', auto: true }]
-});
+const test = base.extend<PlaywrightPerformance, PerformanceOptions & PerformanceWorker>(extendPlaywrightPerformance(options));
 
 for (let i = 0; i < 3; i++) {
   test('startup performance ' + i, async ({ page, performance }) => {
