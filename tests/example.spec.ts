@@ -3,7 +3,7 @@ import extendPlaywrightPerformance, {PerformanceOptions, PerformanceWorker, Play
 import extendPlaywrightCleanup, { PlaywrightCleanup, CleanupOptions } from "playwright-cleanup";
 
 const cleanupOptions: CleanupOptions = {
-  suppressLogging: true
+  suppressLogging: false
 };
 
 const options: PerformanceOptions = {
