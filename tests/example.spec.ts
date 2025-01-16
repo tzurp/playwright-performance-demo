@@ -1,5 +1,10 @@
 import {test as base, expect} from '@playwright/test';
 import extendPlaywrightPerformance, {PerformanceOptions, PerformanceWorker, PlaywrightPerformance} from "playwright-performance";
+import extendPlaywrightCleanup, { PlaywrightCleanup, CleanupOptions } from "playwright-cleanup";
+
+const cleanupOptions: CleanupOptions = {
+  suppressLogging: true
+};
 
 const options: PerformanceOptions = {
   analyzeByBrowser: false,
@@ -11,12 +16,13 @@ const options: PerformanceOptions = {
   recentDays: 1,
 };
 
-const test = base.extend<PlaywrightPerformance, PerformanceOptions & PerformanceWorker>(extendPlaywrightPerformance(options));
+const btest = base.extend<PlaywrightPerformance, PerformanceOptions & PerformanceWorker>(extendPlaywrightPerformance(options));
+const test = btest.extend<PlaywrightCleanup, CleanupOptions>(extendPlaywrightCleanup(cleanupOptions));
 
 for (let i = 0; i < 3; i++) {
-  test('startup performance ' + i, async ({ page, performance }) => {
+  test('startup performance ' + i, async ({ page, performance, cleanup }) => {
     await page.goto("http://www.microsoft.com");
-
+    cleanup.addCleanup(async () => {console.log("cleanup")});
     performance.sampleStart("startup_SF");
     await page.goto('https://sourceforge.net/');
     performance.sampleEnd("startup_SF");
