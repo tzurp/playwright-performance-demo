@@ -14,6 +14,7 @@ const options: PerformanceOptions = {
   performanceResultsFileName: "performance-results",
   suppressConsoleResults: false,
   recentDays: 1,
+  generateHtmlChart: false
 };
 
 const btest = base.extend<PlaywrightPerformance, PerformanceOptions & PerformanceWorker>(extendPlaywrightPerformance(options));
