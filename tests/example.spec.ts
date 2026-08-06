@@ -1,6 +1,7 @@
 import {test as base, expect} from '@playwright/test';
 import extendPlaywrightPerformance, {PerformanceOptions, PerformanceWorker, PlaywrightPerformance} from "playwright-performance";
-import extendPlaywrightCleanup, { PlaywrightCleanup, CleanupOptions } from "playwright-cleanup";
+import type { PlaywrightCleanup, CleanupOptions } from "playwright-cleanup";
+import extendPlaywrightCleanup from "playwright-cleanup";
 
 const cleanupOptions: CleanupOptions = {
   suppressLogging: false
@@ -11,7 +12,7 @@ const options: PerformanceOptions = {
   disableAppendToExistingFile: false,
   dropResultsFromFailedTest: false,
   performanceResultsDirectoryName: "performance-results",
-  performanceResultsFileName: "performance-results",
+  performanceResultsFileName: "performance-results_mod",
   suppressConsoleResults: false,
   recentDays: 1,
   generateHtmlChart: false
